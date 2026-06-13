@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nxt2Campus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <header class="bg-blue-700 text-white py-4 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Nxt2Campus</h1>
+      <nav class="space-x-4">
+        <a href="#register" class="hover:underline">Register</a>
+        <a href="#predictor" class="hover:underline">Predictor</a>
+        <a href="#topcolleges" class="hover:underline">Top Colleges</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center bg-gradient-to-r from-blue-600 to-green-500 text-white py-16">
+    <h2 class="text-4xl font-bold mb-4">Welcome to Nxt2Campus</h2>
+    <p class="text-lg">Your personalized engineering admission guide for Pune</p>
+  </section>
+
+  <!-- Registration Section -->
+  <section id="register" class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center">Student Registration</h2>
+    <form class="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow">
+      <input type="text" placeholder="Full Name" required class="p-3 border rounded" />
+      <input type="email" placeholder="Email" required class="p-3 border rounded" />
+      <input type="tel" placeholder="Mobile Number" required class="p-3 border rounded" />
+      <input type="number" placeholder="MHT-CET Percentile" required class="p-3 border rounded" />
+      <select required class="p-3 border rounded">
+        <option value="">Select Category</option>
+        <option>Open</option><option>OBC</option><option>SC</option><option>ST</option>
+      </select>
+      <select required class="p-3 border rounded">
+        <option value="">Preferred Branch</option>
+        <option>CS</option><option>IT</option><option>Mechanical</option><option>ENTC</option>
+      </select>
+      <input type="password" placeholder="Password" required class="p-3 border rounded col-span-full" />
+      <button type="submit" class="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 col-span-full">Register</button>
+    </form>
+  </section>
+
+  <!-- College Predictor -->
+  <section id="predictor" class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-6 text-center">College Predictor</h2>
+    <form id="predictForm" class="bg-white p-6 rounded-xl shadow space-y-4 text-center">
+      <input id="percentileInput" type="number" step="0.1" min="0" max="100" placeholder="Enter Percentile Score (e.g. 92.5)" required class="p-3 border rounded w-full" />
+      <select id="branchInput" required class="p-3 border rounded w-full">
+        <option value="">Select Branch</option>
+        <option>CS</option><option>IT</option><option>Mechanical</option><option>ENTC</option>
+        <option>Civil</option><option>Electrical</option><option>AI & DS</option>
+        <option>Robotics</option><option>Instrumentation</option><option>Electronics</option>
+        <option>All</option>
+      </select>
+      <button type="submit" class="bg-green-600 text-white py-2 px-6 rounded hover:bg-green-700">Predict Colleges</button>
+    </form>
+    <div id="predictionResult" class="mt-6 text-center hidden">
+      <h3 class="font-semibold text-lg mb-2">You may get admission in:</h3>
+      <ul id="collegeList" class="list-disc list-inside text-left max-w-md mx-auto bg-green-100 p-4 rounded shadow"></ul>
+    </div>
+  </section>
+
+  <!-- Top Colleges Section -->
+  <section id="topcolleges" class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold text-center mb-6">Top 10 Engineering Colleges in Pune</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <button onclick="showCollegeInfo('COEP')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">1. COEP</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('PICT')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">2. PICT</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('VIT')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">3. VIT</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('Cummins')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">4. Cummins</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('PCCOE')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">5. PCCOE</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('MIT-WPU')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">6. MIT-WPU</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('BVCOE')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">7. BVCOE</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('DYPatil')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">8. DYPatil</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('Sinhgad')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">9. Sinhgad</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+      <button onclick="showCollegeInfo('AISSMS')" class="bg-white p-5 rounded-xl shadow hover:bg-blue-50 text-left">
+        <h3 class="font-bold text-lg text-blue-700">10. AISSMS</h3><p class="text-sm text-gray-500">Click for details</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- Modal Popup -->
+  <div id="collegeModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white w-full max-w-xl p-6 rounded-lg shadow relative">
+      <button onclick="closeModal()" class="absolute top-2 right-3 text-gray-500 text-2xl">&times;</button>
+      <div id="collegeDetails" class="space-y-2 text-left"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-700 text-white text-center py-4">
+    <p class="text-sm">© 2025 Nxt2Campus | Built for MHT-CET Aspirants</p>
+  </footer>
+
+  <!-- Correct JS -->
+  <script>
+    const data = {
+      'COEP': { name: 'COEP Technological University', address: 'Shivajinagar, Pune', placement: 'Avg 11.5 LPA, Max 50.5 LPA', CollegeCode: '16006', cutoff: '98.88 - 99.99%', fees: '₹1,56,464/year', departments: ['Civil Engineering','Computer Engineering', 'Electrical Engineering', 'Electronics and Telecommunication Engineering','Instrumentation and Control Engineering', 'Manufacturing Science Engineering','Mechanical Engineering', 'Metallurgy and Materials Technology'] },
+      'PICT': { name: 'Pune Institute of Computer Technology', address: 'Katraj, Pune', placement: 'Avg 10.11 LPA, Max 47.28 LPA', CollegeCode: '06271', cutoff: '98.2-99.2%', fees: '₹1,20,500/year', departments: ['Computer Engineering', 'Information Technology', 'Electronics And Telecommunication','Artificial Intelligence And Data Science','Electronics And Computer Engineering'] },
+      'VIT': { name: 'VIT Pune', address: 'Bibwewadi, Pune', placement: 'Avg 6 LPA, Max 51 LPA', CollegeCode: '06273', cutoff: '95-98%', fees: '₹1,92,945/year', departments: ['Computer Engineering', 'Electronics & Telecommunication Engineering', 'Mechanical Engineering', 'Artificial Intelligence & Data Science','Chemical Engineering','Information Technology', 'Instrumentation & Control Engineering','AI & ML','IoT & Cyber Security','Data Science'] },
+      'Cummins': { name: 'MKSSSs Cummins College of Engineering for Women', address: 'Karve Nagar, Pune', placement: 'Avg 10 LPA, Max 50 LPA', CollegeCode: '06276', cutoff: '94-99%', fees: '₹1,75,436/year', departments: ['Computer Engineering', 'Information Technology', 'Electronics And Telecommunication','Instrumentation and Control','Mechanical Engineering'] },
+      'PCCOE': { name: 'Pimpri Chinchwad College Of Engineering', address: 'Pimpri-Chinchwad, Pune', placement: 'Avg 7 LPA, Max 60.34 LPA', CollegeCode: '06175', cutoff: '96-98%', fees: '₹1,77,096/year', departments: ['Computer Engineering', 'Information Technology', 'Electronics Engineering','Mechanical Engineering','Civil Engineering','Construction Engineering','AI & ML'] },
+      'MIT-WPU': { name: 'Maharashtra Institute of Technology - World Peace University', address: 'Kothrud, Pune', placement: 'Avg 7 LPA, Max 51 LPA', CollegeCode: '06148', cutoff: '94-97%', fees: '₹3,75,000/year', departments: ['Chemical Engineering','Civil Engineering','Computer Engineering','Computer Engineering (Software Engineering)','Mechanical Engineering','Information & Technology','Electronics and Telecommunication Engineering','Computer Science & Engineering (AI ML)','Computer Science & Engineering (Data Science)'] },
+      'BVCOE': { name: 'Bharati Vidyapeeth College Of Engineering', address: 'Katraj, Pune', placement: 'Avg 6 LPA, Max 27 LPA', CollegeCode: '06796', cutoff: '88-94%', fees: '₹1,19,066/year', departments: ['Computer Engineering', 'Mechanical Engineering', 'Electronics & Telecommunication','Information Technology','Civil Engineering','Chemical Engineering','Electrical Engineering','Biomedical Engineering','Production Engineering','Robotics & Automation'] },
+      'DYPatil': { name: 'D.Y. Patil College Of Engineering Akurdi', address: 'Akurdi, Pune', placement: 'Avg 5 LPA, Max 30 LPA', CollegeCode: '06272', cutoff: '91-97%', fees: '₹1,39,189/year', departments: ['Computer Engineering', 'ENTC Engineering', 'Mechanical Engineering','Information Technology','Instrumentation & Control Engineering','Robotics & Automation','AI & DS','Civil Engineering'] },
+      'Sinhgad': { name: 'Sinhgad College of Engineering', address: 'Vadgaon, Pune', placement: 'Avg 4.2 LPA, Max 27 LPA', CollegeCode: '06177', cutoff: '65-95%', fees: '₹1,12,535/year', departments: ['Computer Engineering', 'ENTC Engineering', 'Mechanical Engineering','Chemical Engineering','Information Technology','Production Engineering','Civil Engineering','Bio-Technological Engineering'] },
+      'AISSMS': { name: 'All India Shri Shivaji Memorial Society', address: 'Shivaji Nagar, Pune', placement: 'Avg 4.5 LPA, Max 14 LPA', CollegeCode: '06278', cutoff: '85-96%', fees: '₹1,35,451/year', departments: ['Computer Engineering', 'ENTC Engineering', 'Mechanical Engineering','Chemical Engineering','Civil Engineering','Electrical Engineering','Electronics Engineering','Robotics and Automation','Artificial Intelligence and Machine Learning'] },
+    };
+
+    function closeModal() {
+      document.getElementById('collegeModal').classList.add('hidden');
+    }
+
+    function showCollegeInfo(name) {
+      const c = data[name];
+      document.getElementById('collegeDetails').innerHTML = `
+        <h2 class="text-xl font-bold text-blue-700 mb-2">${c.name}</h2>
+        <p><strong>📍 Address:</strong> ${c.address}</p>
+        <p><strong>👨‍🏫 CollegeCode:</strong> ${c.CollegeCode}</p>
+        <p><strong>📊 Placement:</strong> ${c.placement}</p>
+        <p><strong>🎯 Cutoff:</strong> ${c.cutoff}</p>
+        <p><strong>💰 Fees:</strong> ${c.fees}</p>
+        <p><strong>🏫 Departments:</strong></p>
+        <ul class="list-disc ml-5">${c.departments.map(d => `<li>${d}</li>`).join('')}</ul>
+      `;
+      document.getElementById('collegeModal').classList.remove('hidden');
+      document.getElementById('collegeModal').classList.add('flex');
+    }
+
+    document.getElementById('predictForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const percentile = parseFloat(document.getElementById('percentileInput').value);
+      const branch = document.getElementById('branchInput').value;
+      const resultDiv = document.getElementById('predictionResult');
+      const collegeList = document.getElementById('collegeList');
+      collegeList.innerHTML = '';
+
+      const eligibleColleges = [];
+
+      for (const [key, value] of Object.entries(data)) {
+        const [min, max] = value.cutoff.replace('%', '').split('-').map(x => parseFloat(x.trim()));
+        const matchesBranch = branch === 'All' || value.departments.some(d => d.toLowerCase().includes(branch.toLowerCase()));
+        if (percentile >= min && percentile <= max && matchesBranch) {
+          eligibleColleges.push(`<li>${value.name} (${key})</li>`);
+        }
+      }
+
+      collegeList.innerHTML = eligibleColleges.length > 0
+        ? eligibleColleges.join('')
+        : '<li>No matching colleges found.</li>';
+      resultDiv.classList.remove('hidden');
+    });
+  </script>
+ <script src="script.js"></script>
+
+</body>
+</html>

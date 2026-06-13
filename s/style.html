@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nxt2Campus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <!-- Navbar -->
+    <header class="bg-blue-700 text-white py-4 shadow-md">
+      <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Nxt2Campus</h1>
+        <nav class="space-x-4">
+          <a href="#register" class="hover:underline">Register</a>
+          <a href="#predictor" class="hover:underline">Predictor</a>
+          <a href="#topcolleges" class="hover:underline">Top Colleges</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="text-center bg-gradient-to-r from-blue-600 to-green-500 text-white py-16"
+    >
+      <h2 class="text-4xl font-bold mb-4">Welcome to Nxt2Campus</h2>
+      <p class="text-lg">
+        Your personalized engineering admission guide for Pune
+      </p>
+    </section>
+
+    <!-- Registration & Login Section -->
+    <section id="authSection" class="max-w-4xl mx-auto py-12 px-4">
+      <!-- Welcome Profile Card (hidden by default) -->
+      <div id="profileCard" class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-6 rounded-xl shadow-lg text-center hidden">
+        <h2 class="text-2xl font-bold mb-2">Welcome Back, <span id="profileName">User</span>!</h2>
+        <p class="text-lg opacity-90 mb-4">
+          Logged in as: <strong id="profileEmail">email@example.com</strong> | CET Percentile: <strong id="profileScore">0</strong>% | Category: <strong id="profileCategory">general</strong> | Branch: <strong id="profileBranch">CS</strong>
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="#predictor" class="bg-white text-blue-700 font-semibold py-2 px-6 rounded hover:bg-blue-50 transition-colors">
+            Go to Predictor
+          </a>
+          <button onclick="logoutStudent()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded transition-colors">
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- Auth Forms (shown when logged out) -->
+      <div id="authContainer" class="bg-white rounded-xl shadow-md overflow-hidden">
+        <!-- Tabs Selector -->
+        <div class="flex border-b border-gray-200 bg-gray-50">
+          <button id="tabLoginBtn" onclick="switchTab('login')" class="flex-1 py-4 text-center font-semibold text-blue-700 border-b-2 border-blue-700 focus:outline-none">
+            Login
+          </button>
+          <button id="tabRegisterBtn" onclick="switchTab('register')" class="flex-1 py-4 text-center font-semibold text-gray-500 hover:text-blue-600 border-b-2 border-transparent focus:outline-none">
+            Sign Up
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="p-6 space-y-4">
+          <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Student Login</h3>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input id="loginEmail" type="email" placeholder="Enter your email" required class="p-3 border rounded w-full" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input id="loginPassword" type="password" placeholder="Enter your password" required class="p-3 border rounded w-full" />
+          </div>
+          <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 font-semibold transition-colors">
+            Login
+          </button>
+        </form>
+
+        <!-- Register Form (hidden by default) -->
+        <form id="registerForm" class="p-6 grid md:grid-cols-2 gap-4 hidden">
+          <h3 class="col-span-full text-xl font-bold text-gray-800 text-center mb-2">Create New Account</h3>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+            <input id="regName" type="text" placeholder="Full Name" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input id="regEmail" type="email" placeholder="Email" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+            <input id="regPhone" type="tel" placeholder="Mobile Number" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">MHT-CET Percentile</label>
+            <input id="regScore" type="number" step="0.01" min="0" max="100" placeholder="MHT-CET Percentile" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+            <select id="regCategory" required class="p-3 border rounded w-full">
+              <option value="">Select Category</option>
+              <option value="general">Open</option>
+              <option value="obc">OBC</option>
+              <option value="sc">SC</option>
+              <option value="st">ST</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Branch</label>
+            <select id="regBranch" required class="p-3 border rounded w-full">
+              <option value="">Preferred Branch</option>
+              <option>CS</option>
+              <option>IT</option>
+              <option>Mechanical</option>
+              <option>ENTC</option>
+            </select>
+          </div>
+          
+          <div class="col-span-full">
+            <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
+            <input id="regState" type="text" placeholder="State" value="Maharashtra" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <div class="col-span-full">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input id="regPassword" type="password" placeholder="Password (min 6 characters)" required class="p-3 border rounded w-full" />
+          </div>
+          
+          <button type="submit" class="col-span-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 font-semibold transition-colors mt-2">
+            Register & Sign Up
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- College Predictor -->
+    <section id="predictor" class="max-w-4xl mx-auto py-12 px-4">
+      <h2 class="text-2xl font-bold mb-6 text-center">College Predictor</h2>
+      <form
+        id="predictForm"
+        class="bg-white p-6 rounded-xl shadow space-y-4 text-center"
+      >
+        <input
+          id="percentileInput"
+          type="number"
+          step="0.01"
+          min="0"
+          max="100"
+          placeholder="Enter Percentile Score (e.g. 92.5)"
+          required
+          class="p-3 border rounded w-full"
+        />
+        <select id="categoryInput" required class="p-3 border rounded w-full">
+          <option value="">Select Category</option>
+          <option value="general">Open</option>
+          <option value="obc">OBC</option>
+          <option value="sc">SC</option>
+          <option value="st">ST</option>
+        </select>
+        <select id="branchInput" required class="p-3 border rounded w-full">
+          <option value="">Select Branch</option>
+          <option>CS</option>
+          <option>IT</option>
+          <option>Mechanical</option>
+          <option>ENTC</option>
+          <option>Civil</option>
+          <option>Electrical</option>
+          <option>AI & DS</option>
+          <option>Robotics</option>
+          <option>Instrumentation</option>
+          <option>Electronics</option>
+          <option>All</option>
+        </select>
+        <button
+          type="submit"
+          class="bg-green-600 text-white py-2 px-6 rounded hover:bg-green-700"
+        >
+          Predict Colleges
+        </button>
+      </form>
+      <div id="predictionResult" class="mt-6 text-center hidden">
+        <h3 class="font-semibold text-lg mb-2">You may get admission in:</h3>
+        <ul
+          id="collegeList"
+          class="list-disc list-inside text-left max-w-md mx-auto bg-green-100 p-4 rounded shadow"
+        ></ul>
+      </div>
+    </section>
+
+    <!-- Top Colleges Section -->
+    <section id="topcolleges" class="max-w-6xl mx-auto py-12 px-4">
+      <h2 class="text-2xl font-bold text-center mb-6">
+        Top 10 Engineering Colleges in Pune
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Buttons for colleges -->
+        <button onclick="showCollegeInfo('COEP')" class="college-btn">
+          1. COEP
+        </button>
+        <button onclick="showCollegeInfo('PICT')" class="college-btn">
+          2. PICT
+        </button>
+        <button onclick="showCollegeInfo('VIT')" class="college-btn">
+          3. VIT
+        </button>
+        <button onclick="showCollegeInfo('Cummins')" class="college-btn">
+          4. Cummins
+        </button>
+        <button onclick="showCollegeInfo('PCCOE')" class="college-btn">
+          5. PCCOE
+        </button>
+        <button onclick="showCollegeInfo('MIT-WPU')" class="college-btn">
+          6. MIT-WPU
+        </button>
+        <button onclick="showCollegeInfo('BVCOE')" class="college-btn">
+          7. BVCOE
+        </button>
+        <button onclick="showCollegeInfo('DYPatil')" class="college-btn">
+          8. DYPatil
+        </button>
+        <button onclick="showCollegeInfo('Sinhgad')" class="college-btn">
+          9. Sinhgad
+        </button>
+        <button onclick="showCollegeInfo('AISSMS')" class="college-btn">
+          10. AISSMS
+        </button>
+      </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div
+      id="collegeModal"
+      class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50 z-50"
+    >
+      <div class="bg-white w-full max-w-xl p-6 rounded-lg shadow relative">
+        <button
+          onclick="closeModal()"
+          class="absolute top-2 right-3 text-gray-500 text-2xl"
+        >
+          &times;
+        </button>
+        <div id="collegeDetails" class="space-y-2 text-left"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white text-center py-4">
+      <p class="text-sm">© 2025 Nxt2Campus | Built for MHT-CET Aspirants</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Rock-textured background */
+body {
+  background: url('https://www.transparenttextures.com/patterns/rocky-wall.png');
+  background-color: #f1f5f9;
+  background-size: contain;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+/* Hero section with animated sun */
+section.bg-gradient-to-r {
+  position: relative;
+  overflow: hidden;
+  animation: fadeInHero 1s ease-in-out;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@keyframes fadeInHero {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌞 Sun animation */
+section.bg-gradient-to-r::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffd700 40%, #fbbf24 70%, transparent 80%);
+  border-radius: 50%;
+  animation: rotateSun 10s linear infinite;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+@keyframes rotateSun {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bring text above sun */
+section.bg-gradient-to-r > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navbar hover underline */
+nav a {
+  position: relative;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Button hover pop */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal styling */
+#collegeModal {
+  backdrop-filter: blur(6px);
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* College cards hover */
+button[onclick^="showCollegeInfo"] {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button[onclick^="showCollegeInfo"]:hover {
+  transform: translateY(-4px);
+  background-color: #e0f2fe;
+}
+
+/* Section fade-in animation */
+section {
+  animation: fadeInSection 0.8s ease-in-out both;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer gradient */
+footer {
+  background-image: linear-gradient(to right, #2563eb, #059669);
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Bright CTA button */
+.cta-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* Card hover glow */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 1rem;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Floating background animation */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), transparent 60%);
+  animation: floatBg 20s infinite linear;
+  z-index: -1;
+}
+
+@keyframes floatBg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid.lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}

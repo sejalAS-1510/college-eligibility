@@ -1,0 +1,57 @@
+[
+  {
+    "College Name":"COEP Technological University",
+    "Website":"https:\/\/www.coeptech.ac.in\/",
+    "Address":"Wellesley Road, Shivajinagar, Pune 411005",
+    "Fees":"\u20b91,42,240 per annum",
+    "Branches":"Computer Science Engineering, Instrumentation and Control Engineering, Mechanical Engineering, Civil Engineering, E&TC, Electrical Engineering, Metallurgy and Materials technology, Artificial Intelligence and Machine Learning, Planning ",
+    "Cutoff Ranks":"Computer Science Engineering:96, Instrumentation and Control Engineering:1521, Mechanical Engineering :2109, Civil Engineering: 4466, E&TC : 635, Electrical Engineering: 1341, Metallurgy and Materials technology: 6313,Robotics and Artificial Intelligence: 476, Manufacturing Science and Engineering: 3877",
+    "Average Placement Package":"\u20b910 LPA",
+    "Email":"info@coeptech.ac.in",
+    "Contact No.":"+91 20 25507000"
+  },
+  {
+    "College Name":"Cummins College of Engineering for Women",
+    "Website":"https:\/\/cumminscollege.in\/",
+    "Address":"Karvenagar, Pune 411052",
+    "Fees":"\u20b91,75,436per annum",
+    "Branches":"Computer Engineering, IT, E&TC, Instrumentation and Control Engineering, Mechanical Engineering",
+    "Cutoff Ranks":"Computer Engineering: 2160; IT: 3337; E&TC: 5862 ,Instrumentation and Control Engineering : 9989 ,Mechanical Engineering: 9513 ",
+    "Average Placement Package":"\u20b917 LPA",
+    "Email":"administrator@cumminscollege.in",
+    "Contact No.":"+91 20 25311000"
+  },
+  {
+    "College Name":"Pune Institute of Computer Technology (PICT)",
+    "Website":"https:\/\/pict.edu\/",
+    "Address":"Survey No. 27, Dhankawadi, Pune 411043",
+    "Fees":"\u20b91,20,500 per annum",
+    "Branches":"Computer Engineering, IT,Artificial Intelligence and Data Science, E&TC, Electronics and computer Engineering",
+    "Cutoff Ranks":"Computer Engineering: 577; IT: 954; E&TC: 2092,Artificial Intelligence and Data Science: 1089,Electronics and computer Engineering: 1431",
+    "Average Placement Package":"\u20b910.64 LPA",
+    "Email":"registrar@pict.edu",
+    "Contact No.":"+91 20 24371101"
+  },
+  {
+    "College Name":"Vishwakarma Institute of Technology (VIT Pune)",
+    "Website":"https:\/\/www.vit.edu\/",
+    "Address":"666, Upper Indira Nagar, Bibwewadi, Pune 411037",
+    "Fees":"\u20b92,06,000 per annum",
+    "Branches":"Computer Science and Engineering(Artificial Intelligence), Computer Science and Engineering(Artificial Intelligence and Machine Learning) , Computer Science and Engineering(Data Science), Computer Science and Engineering(Internet of Things And Cyber Security including Block Chain Technology), Computer Engineering (Software Engineering), IT, Mechanical, Civil, E&TC, Instrumentation and Control, Artificial Intelligence and Data Science",
+    "Cutoff Ranks":"Computer Engineering: 2823, Computer Science and Engineering(Artificial Intelligence): 5843, Computer Science and Engineering(Artificial Intelligence and Machine Learning):4839 , Computer Science and Engineering(Data Science): 6324, Computer Science and Engineering(Internet of Things And Cyber Security including Block Chain Technology): 7162, Computer Engineering (Software Engineering): 5696, IT: 4035, Mechanical Engineering: 12151, Civil Engineering: 15906 , E&TC: 7119, Instrumentation and Control Engineering: 16768, Artificial Intelligence and Data Science: 6094",
+    "Average Placement Package":"\u20b99.5 LPA",
+    "Email":"admissions@vit.edu",
+    "Contact No.":"+91 7058432258 "
+  },
+  {
+    "College Name":"International Institute of Information Technology (I2IT Pune)",
+    "Website":"https:\/\/www.isquareit.edu.in\/",
+    "Address":"P-14, Rajiv Gandhi Infotech Park, Phase 1, Hinjawadi, Pune 411057",
+    "Fees":"\u20b9 1,34,746 per annum",
+    "Branches":"Computer Engineering, IT, E&TC",
+    "Cutoff Ranks":"Computer Engineering(GOPENO): 8399, (GOPENH): 11906; IT(GOPENO): 9983, (GOPENH):14628; E&TC(GOPENO): 12234,(GOPENH):18032",
+    "Average Placement Package":"\u20b98.11 LPA",
+    "Email":"admissions@isquareit.edu.in",
+    "Contact No.":"+91 20 22933441"
+  }
+]

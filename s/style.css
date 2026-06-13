@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* Apply modern typography */
+body {
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* College button styles with premium glassmorphism and transitions */
+.college-btn {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  color: #1e3a8a; /* Tailwind blue-900 */
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(30, 58, 138, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.college-btn:hover {
+  background: linear-gradient(135deg, #2563eb, #10b981); /* Tailwind blue-600 to green-500 */
+  color: #ffffff;
+  transform: translateY(-4px) scale(1.02);
+  border-color: transparent;
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3), 0 8px 8px -5px rgba(16, 185, 129, 0.2);
+}
+
+.college-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom fade-in animation for modal and cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#collegeModal > div {
+  animation: fadeIn 0.25s ease-out forwards;
+}
