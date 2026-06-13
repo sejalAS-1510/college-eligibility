@@ -1,0 +1,18 @@
+# Node dependencies
+node_modules/
+
+# Python Virtual Environments
+venv/
+.venv/
+
+# Environment configurations (credentials)
+.env
+
+# System files & IDE setups
+.vscode/
+.DS_Store
+
+# Data sheets & temporary diagnostic/log files
+*.xlsx
+*.log
+*.http
