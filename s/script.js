@@ -481,7 +481,8 @@ async function showCollegeInfo(shortName) {
       'pccoe': ['pimpri chinchwad', 'pccoe'],
       'bvcoe': ['bharati vidyapeeth', 'bvcoe'],
       'dypatil': ['d.y. patil', 'dypatil', 'dy patil'],
-      'aissms': ['all india shri shivaji', 'aissms']
+      'aissms': ['all india shri shivaji', 'aissms'],
+      'mit-wpu': ['maharashtra institute of technology', 'mit-wpu', 'mit world peace university']
     };
     if (abbreviationMap[query]) {
       return abbreviationMap[query].some(term => fullName.includes(term));
